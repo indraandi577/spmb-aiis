@@ -9,6 +9,10 @@ export const metadata: Metadata = {
   title: 'SPMB AIIS 2027/2028 — Penerimaan Murid Baru',
   description:
     'Sistem Penerimaan Murid Baru Al-Iman Islamic Integrated School, Yayasan Al-Iman Pondok Pesantren Hidayatullah Kebumen. Tahun Ajaran 2027/2028.',
+  icons: {
+    icon: '/logo-smp.png',
+    apple: '/logo-smp.png',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

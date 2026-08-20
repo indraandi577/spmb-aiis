@@ -83,20 +83,18 @@ export default function HomePage() {
 
           <h1 className="animate-fade-up-delay-1 text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4">
             Selamat Datang di
-            <span className="block text-blue-300 text-lg md:text-xl font-medium mt-2 mb-1">
-               Pesantren Hidayatullah Kebumen
-            </span>
-            <span className="block text-blue-300 text-lg md:text-xl font-medium mt-2 mb-1">
-               Yayasan Al-Iman 
-            </span>
-            <span className="block text-sky-300 mt-1">SPMB AIIS</span>
+            <span className="block text-sky-300 mt-2">Al-Iman Islamic Integrated School</span>
+            <span className="block text-white mt-2">SPMB</span>
             <span className="block text-2xl md:text-3xl font-semibold text-blue-200 mt-2">
               Tahun Ajaran 2027/2028
             </span>
           </h1>
 
-          <p className="animate-fade-up-delay-2 text-blue-200 text-sm md:text-base max-w-xl mx-auto leading-relaxed mb-3">
-            Sistem Penerimaan Murid Baru — <strong className="text-white">Al-Iman Islamic Integrated School</strong>
+          <p className="animate-fade-up-delay-2 text-blue-200 text-sm md:text-base max-w-xl mx-auto leading-relaxed mb-2">
+            Sistem Penerimaan Murid Baru
+          </p>
+          <p className="animate-fade-up-delay-2 text-blue-300 text-sm max-w-xl mx-auto leading-relaxed mb-3">
+            Pesantren Hidayatullah · Yayasan Al-Iman Kebumen
           </p>
 
           {/* Tagline / quote */}
