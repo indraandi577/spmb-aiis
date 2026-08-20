@@ -106,7 +106,7 @@ export default function FormDaftarPage() {
           <p className="text-white/80 text-sm">
             {parentGroup ? `${parentGroup.nama} · ` : ''}Formulir Pendaftaran SPMB 2027/2028
           </p>
-          {unit.usiaMin !== undefined && (
+          {unit.usiaMin !== undefined && unit.id !== 'smp' && (
             <p className="text-white/70 text-xs mt-0.5">
               Usia: {unit.usiaMin}–{unit.usiaMax} tahun
             </p>
@@ -156,10 +156,20 @@ export default function FormDaftarPage() {
 
               <div>
                 <label className="block text-sm font-medium text-slate-600 mb-1">
-                  {isKBTK ? 'Asal Playgroup / TPA Sebelumnya' : 'Asal Sekolah / TK Sebelumnya'}
+                  {isKBTK
+                    ? 'Asal Playgroup / TPA Sebelumnya'
+                    : unit.id === 'smp'
+                    ? 'Asal SD / Sekolah Sebelumnya'
+                    : 'Asal Sekolah / TK Sebelumnya'}
                 </label>
                 <input type="text" name="asal_sekolah" value={form.asal_sekolah} onChange={handleChange}
-                  placeholder={isKBTK ? 'Nama playgroup / TPA asal (jika ada)' : 'Nama sekolah / TK asal (jika ada)'}
+                  placeholder={
+                    isKBTK
+                      ? 'Nama playgroup / TPA asal (jika ada)'
+                      : unit.id === 'smp'
+                      ? 'Nama SD asal'
+                      : 'Nama sekolah / TK asal (jika ada)'
+                  }
                   className={inputClass('asal_sekolah')} />
               </div>
             </div>
