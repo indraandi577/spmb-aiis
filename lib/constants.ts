@@ -30,7 +30,7 @@ export const UNITS = [
   },
   {
     id: 'tka',
-    nama: 'TK A (Taman Kanak-Kanak A)',
+    nama: 'RA A (Raudhatul Athfal A)',
     singkatan: 'TK A',
     warna: '#c2006e',
     deskripsi: 'Usia 4–5 tahun',
@@ -44,7 +44,7 @@ export const UNITS = [
   },
   {
     id: 'tkb',
-    nama: 'TK B (Taman Kanak-Kanak B)',
+    nama: 'RA B (Raudhatul Athfal B)',
     singkatan: 'TK B',
     warna: '#8b004d',
     deskripsi: 'Usia 5–6 tahun',
@@ -92,10 +92,10 @@ export const UNITS = [
 export const UNIT_GROUPS = [
   {
     id: 'kb-tk',
-    nama: 'KB-TK Yaa Bunayya',
-    singkatan: 'KB-TK',
+    nama: 'Daycare, KB-RA Yaa Bunayya',
+    singkatan: 'KB-RA',
     warna: '#fd0290',
-    deskripsi: 'Kelompok Bermain & Taman Kanak-Kanak',
+    deskripsi: 'Daycare, Kelompok Bermain & Raudhatul Athfal',
     logo: '/logo-tk.png',
     iconFallback: '🌱',
     subUnits: ['tpa', 'kb', 'tka', 'tkb'],

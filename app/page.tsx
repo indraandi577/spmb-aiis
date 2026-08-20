@@ -129,12 +129,12 @@ export default function HomePage() {
                               </span>
                               <p className="text-slate-700 font-semibold text-sm leading-tight">
                                 {sub.singkatan === 'TPA'
-                                  ? 'Taman Pengasuhan Anak'
+                                  ? 'Daycare'
                                   : sub.singkatan === 'KB'
                                   ? 'Kelompok Bermain'
                                   : sub.singkatan === 'TK A'
-                                  ? 'TK A'
-                                  : 'TK B'}
+                                  ? 'RA A'
+                                  : 'RA B'}
                               </p>
                               <p className="text-slate-400 text-xs mt-1">{sub.deskripsi}</p>
                               <span
@@ -210,13 +210,25 @@ export default function HomePage() {
 
         {/* Info */}
         <div className="mt-8 bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-800">
-          <p className="font-semibold mb-1">📌 Informasi Pendaftaran</p>
-          <ul className="space-y-1 text-amber-700 list-disc list-inside">
-            <li>Isi formulir pendaftaran dengan data yang lengkap dan benar</li>
-            <li>Lakukan pembayaran biaya pendaftaran setelah mengisi formulir</li>
-            <li>Upload bukti pembayaran untuk konfirmasi</li>
-            <li>Tim kami akan menghubungi Anda melalui WhatsApp</li>
-          </ul>
+          <p className="font-semibold mb-3">📋 Alur Pendaftaran</p>
+          <ol className="space-y-2 text-amber-700">
+            <li className="flex gap-2">
+              <span className="shrink-0 w-5 h-5 rounded-full bg-amber-200 text-amber-800 text-xs font-bold flex items-center justify-center">1</span>
+              <span>Lengkapi formulir pendaftaran dengan data yang benar dan lengkap</span>
+            </li>
+            <li className="flex gap-2">
+              <span className="shrink-0 w-5 h-5 rounded-full bg-amber-200 text-amber-800 text-xs font-bold flex items-center justify-center">2</span>
+              <span>Lakukan infaq pendaftaran sesuai ketentuan, setelah formulir berhasil diisi</span>
+            </li>
+            <li className="flex gap-2">
+              <span className="shrink-0 w-5 h-5 rounded-full bg-amber-200 text-amber-800 text-xs font-bold flex items-center justify-center">3</span>
+              <span>Upload bukti infaq pendaftaran untuk proses verifikasi dan konfirmasi</span>
+            </li>
+            <li className="flex gap-2">
+              <span className="shrink-0 w-5 h-5 rounded-full bg-amber-200 text-amber-800 text-xs font-bold flex items-center justify-center">4</span>
+              <span>Tim kami akan menghubungi Anda melalui WhatsApp untuk informasi dan proses selanjutnya</span>
+            </li>
+          </ol>
         </div>
 
         {/* Footer link admin */}
