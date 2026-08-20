@@ -128,13 +128,7 @@ export default function HomePage() {
                                 {sub.singkatan}
                               </span>
                               <p className="text-slate-700 font-semibold text-sm leading-tight">
-                                {sub.singkatan === 'TPA'
-                                  ? 'Daycare'
-                                  : sub.singkatan === 'KB'
-                                  ? 'Kelompok Bermain'
-                                  : sub.singkatan === 'TK A'
-                                  ? 'RA A'
-                                  : 'RA B'}
+                                {sub.nama}
                               </p>
                               <p className="text-slate-400 text-xs mt-1">{sub.deskripsi}</p>
                               <span

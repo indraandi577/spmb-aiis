@@ -1,7 +1,7 @@
 -- Tabel pendaftaran
 CREATE TABLE pendaftaran (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-  unit_id TEXT NOT NULL CHECK (unit_id IN ('tpa', 'kb', 'tka', 'tkb', 'sdit', 'smp')),
+  unit_id TEXT NOT NULL CHECK (unit_id IN ('daycare', 'kb-kecil', 'kb-besar', 'tka', 'tkb', 'sdit', 'smp')),
   unit_nama TEXT NOT NULL,
 
   -- Data Anak
@@ -12,7 +12,9 @@ CREATE TABLE pendaftaran (
 
   -- Data Orang Tua
   nama_ayah TEXT NOT NULL,
+  pekerjaan_ayah TEXT,
   nama_ibu TEXT NOT NULL,
+  pekerjaan_ibu TEXT,
   no_telepon TEXT NOT NULL,
   alamat TEXT NOT NULL,
 

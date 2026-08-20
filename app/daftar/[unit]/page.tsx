@@ -25,7 +25,9 @@ export default function FormDaftarPage() {
     jenis_kelamin: '',
     asal_sekolah: '',
     nama_ayah: '',
+    pekerjaan_ayah: '',
     nama_ibu: '',
+    pekerjaan_ibu: '',
     no_telepon: '',
     alamat: '',
   })
@@ -167,6 +169,8 @@ export default function FormDaftarPage() {
           <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
             <h2 className="font-semibold text-slate-700 mb-4">👪 Data Orang Tua / Wali</h2>
             <div className="space-y-4">
+
+              {/* Ayah */}
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <label className="block text-sm font-medium text-slate-600 mb-1">
@@ -178,11 +182,29 @@ export default function FormDaftarPage() {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-slate-600 mb-1">
+                    Pekerjaan Ayah
+                  </label>
+                  <input type="text" name="pekerjaan_ayah" value={form.pekerjaan_ayah} onChange={handleChange}
+                    placeholder="Contoh: Wiraswasta" className={inputClass('pekerjaan_ayah')} />
+                </div>
+              </div>
+
+              {/* Ibu */}
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-sm font-medium text-slate-600 mb-1">
                     Nama Ibu <span className="text-red-500">*</span>
                   </label>
                   <input type="text" name="nama_ibu" value={form.nama_ibu} onChange={handleChange}
                     placeholder="Nama lengkap ibu" className={inputClass('nama_ibu')} />
                   {errors.nama_ibu && <p className="text-red-500 text-xs mt-1">{errors.nama_ibu}</p>}
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-slate-600 mb-1">
+                    Pekerjaan Ibu
+                  </label>
+                  <input type="text" name="pekerjaan_ibu" value={form.pekerjaan_ibu} onChange={handleChange}
+                    placeholder="Contoh: Ibu Rumah Tangga" className={inputClass('pekerjaan_ibu')} />
                 </div>
               </div>
 

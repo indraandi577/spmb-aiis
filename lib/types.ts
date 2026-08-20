@@ -1,4 +1,4 @@
-export type UnitId = 'tpa' | 'kb' | 'tka' | 'tkb' | 'sdit' | 'smp'
+export type UnitId = 'daycare' | 'kb-kecil' | 'kb-besar' | 'tka' | 'tkb' | 'sdit' | 'smp'
 
 export interface DataPendaftaran {
   id?: string
@@ -13,7 +13,9 @@ export interface DataPendaftaran {
 
   // Data Orang Tua
   nama_ayah: string
+  pekerjaan_ayah: string
   nama_ibu: string
+  pekerjaan_ibu: string
   no_telepon: string
   alamat: string
 
