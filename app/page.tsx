@@ -12,11 +12,17 @@ function hexToRgb(hex: string) {
   return { r, g, b }
 }
 
-const STATS = [
-  { label: 'Unit Pendidikan', value: '3', icon: '🏫' },
-  { label: 'Tahun Berdiri', value: '2005', icon: '📅' },
-  { label: 'Alumni', value: '1000+', icon: '🎓' },
-  { label: 'Tenaga Pendidik', value: '50+', icon: '👨‍🏫' },
+const ALAMAT = [
+  {
+    unit: 'Daycare, KB-RA & SDIT',
+    icon: '📍',
+    alamat: 'Jl. Tentara Pelajar No. 48, Kembaran, Kebumen, Jawa Tengah',
+  },
+  {
+    unit: 'SMP Integral Hidayatullah',
+    icon: '📍',
+    alamat: 'Jl. Joko Sangkrip Km 1,2, Kebumen, Kebumen, Jawa Tengah',
+  },
 ]
 
 export default function HomePage() {
@@ -97,7 +103,7 @@ export default function HomePage() {
           <div className="animate-fade-up-delay-2 inline-flex items-center gap-2 bg-white/10 border border-white/20 backdrop-blur-sm rounded-xl px-5 py-3 mb-10 max-w-md">
             <span className="text-xl">🌟</span>
             <p className="text-blue-100 text-sm italic">
-              "Membentuk generasi beriman, berilmu, dan berakhlak mulia"
+              "Melahirkan pemimpin peradaban islam penebar rahmat ke seluruh alam"
             </p>
           </div>
 
@@ -119,14 +125,16 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Stats bar */}
+        {/* Alamat bar */}
         <div className="relative z-10 border-t border-white/10 bg-white/5 backdrop-blur-sm">
-          <div className="max-w-3xl mx-auto px-4 py-5 grid grid-cols-2 md:grid-cols-4 gap-4">
-            {STATS.map((s) => (
-              <div key={s.label} className="text-center">
-                <div className="text-xl mb-1">{s.icon}</div>
-                <div className="text-white font-bold text-xl">{s.value}</div>
-                <div className="text-blue-300 text-xs">{s.label}</div>
+          <div className="max-w-3xl mx-auto px-4 py-5 flex flex-col md:flex-row items-start md:items-center justify-center gap-4 md:gap-10">
+            {ALAMAT.map((a) => (
+              <div key={a.unit} className="flex items-start gap-2.5">
+                <span className="text-base mt-0.5 shrink-0">{a.icon}</span>
+                <div>
+                  <p className="text-white text-xs font-semibold">{a.unit}</p>
+                  <p className="text-blue-300 text-xs leading-relaxed">{a.alamat}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -344,16 +352,53 @@ export default function HomePage() {
       </section>
 
       {/* ─── FOOTER ───────────────────────────────────────────────── */}
-      <footer className="bg-blue-950 text-blue-300 py-8 px-4">
-        <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
-          <div className="text-center md:text-left">
-            <p className="font-semibold text-white">SPMB AIIS 2027/2028</p>
-            <p className="text-blue-400 text-xs mt-0.5">Yayasan Al-Iman · PP Hidayatullah Kebumen</p>
+      <footer className="bg-blue-950 text-blue-300 py-10 px-4">
+        <div className="max-w-4xl mx-auto">
+          {/* Top row */}
+          <div className="flex flex-col md:flex-row items-start justify-between gap-8 mb-8">
+            {/* Brand */}
+            <div>
+              <p className="font-bold text-white text-base">SPMB AIIS 2027/2028</p>
+              <p className="text-blue-400 text-xs mt-1">Yayasan Al-Iman · PP Hidayatullah Kebumen</p>
+              <p className="text-blue-400 text-xs mt-0.5">Al-Iman Islamic Integrated School</p>
+            </div>
+
+            {/* Sosmed */}
+            <div>
+              <p className="text-white text-xs font-semibold uppercase tracking-widest mb-3">Ikuti Kami di Instagram</p>
+              <div className="flex flex-col gap-2.5">
+                {[
+                  { unit: 'KB-TK Yaa Bunayya', handle: '@kbtkyaabunayyakebumen', url: 'https://www.instagram.com/kbtkyaabunayyakebumen' },
+                  { unit: 'SDIT Al-Madinah', handle: '@sditalmadinahkebumen', url: 'https://www.instagram.com/sditalmadinahkebumen' },
+                  { unit: 'SMP Integral Hidayatullah', handle: '@smpintegralhidayatullahkebumen', url: 'https://www.instagram.com/smpintegralhidayatullahkebumen' },
+                ].map((s) => (
+                  <a
+                    key={s.unit}
+                    href={s.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center gap-2.5 hover:text-white transition-colors"
+                  >
+                    {/* IG icon */}
+                    <span className="w-7 h-7 rounded-lg bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500 flex items-center justify-center shrink-0 shadow-md group-hover:scale-110 transition-transform">
+                      <svg className="w-3.5 h-3.5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                      </svg>
+                    </span>
+                    <div>
+                      <p className="text-blue-200 text-xs font-medium group-hover:text-white transition-colors">{s.unit}</p>
+                      <p className="text-blue-400 text-xs group-hover:text-blue-200 transition-colors">{s.handle}</p>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
-          <div className="flex items-center gap-4 text-xs text-blue-400">
-            <Link href="/admin" className="hover:text-white transition-colors">Admin Panel</Link>
-            <span>·</span>
-            <span>© 2027 AIIS</span>
+
+          {/* Bottom row */}
+          <div className="border-t border-white/10 pt-5 flex flex-col md:flex-row items-center justify-between gap-2 text-xs text-blue-500">
+            <span>© 2027 AIIS — Al-Iman Islamic Integrated School</span>
+            <Link href="/admin" className="hover:text-white transition-colors">Admin Panel →</Link>
           </div>
         </div>
       </footer>
