@@ -10,6 +10,13 @@ CREATE TABLE pendaftaran (
   jenis_kelamin TEXT NOT NULL CHECK (jenis_kelamin IN ('L', 'P')),
   asal_sekolah TEXT,
 
+  -- Jenis pendaftaran (khusus SD & SMP)
+  jenis_pendaftaran TEXT CHECK (jenis_pendaftaran IN ('baru', 'pindahan')),
+  kelas_masuk TEXT,
+
+  -- Program (khusus SMP)
+  program_smp TEXT CHECK (program_smp IN ('fullday', 'boarding', 'fullday-internasional', 'boarding-internasional')),
+
   -- Data Orang Tua
   nama_ayah TEXT NOT NULL,
   pekerjaan_ayah TEXT,

@@ -16,10 +16,27 @@ export default function FormDaftarPage() {
     ? UNIT_GROUPS.find((g) => g.id === unit.parentId)
     : null
   const isKBTK = unit?.parentId === 'kb-tk'
+  const hasPindahan = unit?.id === 'sdit' || unit?.id === 'smp'
+  const isSMP = unit?.id === 'smp'
+
+  const KELAS_OPTIONS: Record<string, string[]> = {
+    sdit: ['Kelas 1', 'Kelas 2', 'Kelas 3', 'Kelas 4', 'Kelas 5', 'Kelas 6'],
+    smp:  ['Kelas 7', 'Kelas 8', 'Kelas 9'],
+  }
+
+  const PROGRAM_SMP = [
+    { value: 'fullday',                label: 'Full Day',                  icon: '🌤️', desc: 'Pulang sore, tinggal di rumah' },
+    { value: 'boarding',               label: 'Boarding',                  icon: '🏠', desc: 'Tinggal di pesantren (putra/putri)' },
+    { value: 'fullday-internasional',  label: 'Full Day Internasional',    icon: '🌍', desc: 'Full day dengan kurikulum internasional' },
+    { value: 'boarding-internasional', label: 'Boarding Internasional',    icon: '🌐', desc: 'Boarding dengan kurikulum internasional' },
+  ]
 
   const [loading, setLoading] = useState(false)
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [form, setForm] = useState({
+    jenis_pendaftaran: '',
+    kelas_masuk: '',
+    program_smp: '',
     nama_anak: '',
     tanggal_lahir: '',
     jenis_kelamin: '',
@@ -49,6 +66,10 @@ export default function FormDaftarPage() {
 
   const validate = () => {
     const e: Record<string, string> = {}
+    if (hasPindahan && !form.jenis_pendaftaran) e.jenis_pendaftaran = 'Pilih jenis pendaftaran'
+    if (hasPindahan && form.jenis_pendaftaran === 'pindahan' && !form.kelas_masuk)
+      e.kelas_masuk = 'Pilih kelas yang dituju'
+    if (isSMP && !form.program_smp) e.program_smp = 'Pilih program yang diinginkan'
     if (!form.nama_anak.trim()) e.nama_anak = 'Nama anak wajib diisi'
     if (!form.tanggal_lahir) e.tanggal_lahir = 'Tanggal lahir wajib diisi'
     if (!form.jenis_kelamin) e.jenis_kelamin = 'Jenis kelamin wajib dipilih'
@@ -150,6 +171,121 @@ export default function FormDaftarPage() {
       {/* ── Form ── */}
       <div className="max-w-2xl mx-auto px-4 py-8">
         <form onSubmit={handleSubmit} className="space-y-5">
+
+          {/* ── Jenis Pendaftaran (khusus SD & SMP) ── */}
+          {hasPindahan && (
+            <div className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+              <div className="flex items-center gap-2 px-6 py-4 border-b border-slate-100 bg-slate-50/50">
+                <span className="text-lg">📋</span>
+                <h2 className="font-bold text-slate-700">Jenis Pendaftaran</h2>
+              </div>
+              <div className="px-6 py-5 space-y-4">
+
+                {/* Toggle baru / pindahan */}
+                <div>
+                  <label className="block text-sm font-semibold text-slate-600 mb-2">
+                    Mendaftar sebagai <span className="text-red-500">*</span>
+                  </label>
+                  <div className="grid grid-cols-2 gap-3">
+                    {[
+                      { value: 'baru',     label: 'Siswa Baru',     icon: '🌟', desc: 'Belum pernah bersekolah di sini' },
+                      { value: 'pindahan', label: 'Siswa Pindahan', icon: '🔄', desc: 'Pindah dari sekolah lain' },
+                    ].map((opt) => (
+                      <button
+                        key={opt.value}
+                        type="button"
+                        onClick={() => {
+                          setForm((prev) => ({ ...prev, jenis_pendaftaran: opt.value, kelas_masuk: '' }))
+                          if (errors.jenis_pendaftaran) setErrors((prev) => ({ ...prev, jenis_pendaftaran: '' }))
+                        }}
+                        className={`flex flex-col items-center text-center rounded-xl border-2 p-4 transition-all duration-150 ${
+                          form.jenis_pendaftaran === opt.value
+                            ? 'border-blue-500 bg-blue-50 shadow-sm'
+                            : 'border-slate-200 hover:border-blue-200 hover:bg-slate-50'
+                        }`}
+                      >
+                        <span className="text-2xl mb-1.5">{opt.icon}</span>
+                        <span className={`font-bold text-sm ${form.jenis_pendaftaran === opt.value ? 'text-blue-700' : 'text-slate-700'}`}>
+                          {opt.label}
+                        </span>
+                        <span className="text-slate-400 text-xs mt-0.5">{opt.desc}</span>
+                        {form.jenis_pendaftaran === opt.value && (
+                          <span className="mt-2 text-blue-600 text-xs font-semibold">✓ Dipilih</span>
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                  {errors.jenis_pendaftaran && <p className="text-red-500 text-xs mt-1">⚠ {errors.jenis_pendaftaran}</p>}
+                </div>
+
+                {/* Kelas masuk — muncul hanya jika pindahan */}
+                {form.jenis_pendaftaran === 'pindahan' && (
+                  <div className="animate-fade-up">
+                    <label className="block text-sm font-semibold text-slate-600 mb-1.5">
+                      Masuk ke Kelas <span className="text-red-500">*</span>
+                    </label>
+                    <select
+                      name="kelas_masuk"
+                      value={form.kelas_masuk}
+                      onChange={handleChange}
+                      className={inputClass('kelas_masuk')}
+                    >
+                      <option value="">Pilih kelas yang dituju...</option>
+                      {(KELAS_OPTIONS[unit.id] ?? []).map((k) => (
+                        <option key={k} value={k}>{k}</option>
+                      ))}
+                    </select>
+                    {errors.kelas_masuk && <p className="text-red-500 text-xs mt-1">⚠ {errors.kelas_masuk}</p>}
+                    <p className="text-slate-400 text-xs mt-1.5">
+                      💡 Kelas yang tersedia dapat berubah sesuai kapasitas. Tim kami akan mengkonfirmasi melalui WhatsApp.
+                    </p>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* ── Program SMP ── */}
+          {isSMP && (
+            <div className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+              <div className="flex items-center gap-2 px-6 py-4 border-b border-slate-100 bg-slate-50/50">
+                <span className="text-lg">🎯</span>
+                <h2 className="font-bold text-slate-700">Pilih Program</h2>
+              </div>
+              <div className="px-6 py-5">
+                <label className="block text-sm font-semibold text-slate-600 mb-2">
+                  Program yang Diminati <span className="text-red-500">*</span>
+                </label>
+                <div className="grid grid-cols-2 gap-3">
+                  {PROGRAM_SMP.map((p) => (
+                    <button
+                      key={p.value}
+                      type="button"
+                      onClick={() => {
+                        setForm((prev) => ({ ...prev, program_smp: p.value }))
+                        if (errors.program_smp) setErrors((prev) => ({ ...prev, program_smp: '' }))
+                      }}
+                      className={`flex flex-col items-center text-center rounded-xl border-2 p-4 transition-all duration-150 ${
+                        form.program_smp === p.value
+                          ? 'border-blue-500 bg-blue-50 shadow-sm'
+                          : 'border-slate-200 hover:border-blue-200 hover:bg-slate-50'
+                      }`}
+                    >
+                      <span className="text-2xl mb-1.5">{p.icon}</span>
+                      <span className={`font-bold text-sm leading-tight ${form.program_smp === p.value ? 'text-blue-700' : 'text-slate-700'}`}>
+                        {p.label}
+                      </span>
+                      <span className="text-slate-400 text-xs mt-0.5 leading-snug">{p.desc}</span>
+                      {form.program_smp === p.value && (
+                        <span className="mt-2 text-blue-600 text-xs font-semibold">✓ Dipilih</span>
+                      )}
+                    </button>
+                  ))}
+                </div>
+                {errors.program_smp && <p className="text-red-500 text-xs mt-2">⚠ {errors.program_smp}</p>}
+              </div>
+            </div>
+          )}
 
           {/* ── Data Calon Siswa ── */}
           <div className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
