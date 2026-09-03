@@ -26,7 +26,7 @@ export default function FormDaftarPage() {
 
   const PROGRAM_SMP = [
     { value: 'fullday',                label: 'Full Day',                  icon: '🌤️', desc: 'Pulang sore, tinggal di rumah' },
-    { value: 'boarding',               label: 'Boarding',                  icon: '🏠', desc: 'Tinggal di pesantren (putra/putri)' },
+    { value: 'boarding',               label: 'Boarding',                  icon: '🏠', desc: 'Tinggal di pesantren (putra)' },
     { value: 'fullday-internasional',  label: 'Full Day Internasional',    icon: '🌍', desc: 'Full day dengan kurikulum internasional' },
     { value: 'boarding-internasional', label: 'Boarding Internasional',    icon: '🌐', desc: 'Boarding dengan kurikulum internasional' },
   ]
@@ -330,7 +330,7 @@ export default function FormDaftarPage() {
               <div>
                 <label className="block text-sm font-semibold text-slate-600 mb-1.5">
                   {isKBTK
-                    ? 'Asal Playgroup / Daycare Sebelumnya'
+                    ? 'Nama Playgroup / sekolah sebelumnya'
                     : unit.id === 'smp'
                     ? 'Asal SD / Sekolah Sebelumnya'
                     : 'Asal Sekolah / TK Sebelumnya'}
