@@ -11,8 +11,9 @@ export const UNITS = [
     parentId: 'kb-tk',
     noRekening: '1033923046',
     namaBank: 'Bank Syariah Indonesia (BSI)',
+    atasNama: 'Yayasan Al-Iman',
     nomorWA: '6285166458827',
-    biayaPendaftaran: 150000,
+    biayaPendaftaran: 250000,
   },
   {
     id: 'kb-kecil',
@@ -25,8 +26,9 @@ export const UNITS = [
     parentId: 'kb-tk',
     noRekening: '1033923046',
     namaBank: 'Bank Syariah Indonesia (BSI)',
+    atasNama: 'Yayasan Al-Iman',
     nomorWA: '6285166458827',
-    biayaPendaftaran: 150000,
+    biayaPendaftaran: 250000,
   },
   {
     id: 'kb-besar',
@@ -39,8 +41,9 @@ export const UNITS = [
     parentId: 'kb-tk',
     noRekening: '1033923046',
     namaBank: 'Bank Syariah Indonesia (BSI)',
+    atasNama: 'Yayasan Al-Iman',
     nomorWA: '6285166458827',
-    biayaPendaftaran: 150000,
+    biayaPendaftaran: 250000,
   },
   {
     id: 'tka',
@@ -53,8 +56,9 @@ export const UNITS = [
     parentId: 'kb-tk',
     noRekening: '1033923046',
     namaBank: 'Bank Syariah Indonesia (BSI)',
+    atasNama: 'Yayasan Al-Iman',
     nomorWA: '6285166458827',
-    biayaPendaftaran: 150000,
+    biayaPendaftaran: 250000,
   },
   {
     id: 'tkb',
@@ -67,8 +71,9 @@ export const UNITS = [
     parentId: 'kb-tk',
     noRekening: '1033923046',
     namaBank: 'Bank Syariah Indonesia (BSI)',
+    atasNama: 'Yayasan Al-Iman',
     nomorWA: '6285166458827',
-    biayaPendaftaran: 150000,
+    biayaPendaftaran: 250000,
   },
   // ── SD ─────────────────────────────────────────────────────────
   {
@@ -82,8 +87,9 @@ export const UNITS = [
     parentId: null,
     noRekening: '1033923046',
     namaBank: 'Bank Syariah Indonesia (BSI)',
+    atasNama: 'Yayasan Al-Iman',
     nomorWA: '6285166458827',
-    biayaPendaftaran: 200000,
+    biayaPendaftaran: 300000,
   },
   // ── SMP ────────────────────────────────────────────────────────
   {
@@ -97,8 +103,9 @@ export const UNITS = [
     parentId: null,
     noRekening: '1033923046',
     namaBank: 'Bank Syariah Indonesia (BSI)',
+    atasNama: 'Yayasan Al-Iman',
     nomorWA: '6285166458827',
-    biayaPendaftaran: 250000,
+    biayaPendaftaran: 300000,
   },
 ]
 

@@ -128,7 +128,7 @@ export default function PembayaranPage() {
             </div>
             <div className="flex justify-between items-center">
               <span className="text-sm text-slate-500">A.N.</span>
-              <span className="font-medium text-slate-700">{unit.nama}</span>
+              <span className="font-medium text-slate-700">{unit.atasNama}</span>
             </div>
           </div>
           <div className="mt-4 bg-yellow-50 border border-yellow-200 rounded-lg p-3 text-xs text-yellow-800">
