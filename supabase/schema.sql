@@ -15,7 +15,7 @@ CREATE TABLE pendaftaran (
   kelas_masuk TEXT,
 
   -- Program (khusus SMP)
-  program_smp TEXT CHECK (program_smp IN ('fullday', 'boarding', 'fullday-internasional', 'boarding-internasional')),
+  program_smp TEXT CHECK (program_smp IN ('fullday', 'boarding', 'internasional')),
 
   -- Data Orang Tua
   nama_ayah TEXT NOT NULL,

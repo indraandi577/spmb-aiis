@@ -25,10 +25,9 @@ export default function FormDaftarPage() {
   }
 
   const PROGRAM_SMP = [
-    { value: 'fullday',                label: 'Full Day',                  icon: '🌤️', desc: 'Pulang sore, tinggal di rumah' },
-    { value: 'boarding',               label: 'Boarding',                  icon: '🏠', desc: 'Tinggal di pesantren (putra)' },
-    { value: 'fullday-internasional',  label: 'Full Day Internasional',    icon: '🌍', desc: 'Full day dengan kurikulum internasional' },
-    { value: 'boarding-internasional', label: 'Boarding Internasional',    icon: '🌐', desc: 'Boarding dengan kurikulum internasional' },
+    { value: 'fullday',       label: 'Full Day',      icon: '🌤️', desc: 'Pulang sore, tinggal di rumah' },
+    { value: 'boarding',      label: 'Boarding',      icon: '🏠', desc: 'Tinggal di pesantren (putra/putri)' },
+    { value: 'internasional', label: 'Internasional', icon: '🌐', desc: 'Program dengan kurikulum internasional' },
   ]
 
   const [loading, setLoading] = useState(false)

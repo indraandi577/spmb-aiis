@@ -18,10 +18,9 @@ const statusLabel: Record<string, string> = {
 }
 
 const programLabel: Record<string, string> = {
-  'fullday':                 'Full Day',
-  'boarding':                'Boarding',
-  'fullday-internasional':   'Full Day Intl',
-  'boarding-internasional':  'Boarding Intl',
+  'fullday':       'Full Day',
+  'boarding':      'Boarding',
+  'internasional': 'Internasional',
 }
 
 const unitColor: Record<string, string> = {

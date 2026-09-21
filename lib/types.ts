@@ -1,6 +1,6 @@
 export type UnitId = 'daycare' | 'kb-kecil' | 'kb-besar' | 'tka' | 'tkb' | 'sdit' | 'smp'
 export type JenisPendaftaran = 'baru' | 'pindahan'
-export type ProgramSMP = 'fullday' | 'boarding' | 'fullday-internasional' | 'boarding-internasional'
+export type ProgramSMP = 'fullday' | 'boarding' | 'internasional'
 
 export interface DataPendaftaran {
   id?: string
