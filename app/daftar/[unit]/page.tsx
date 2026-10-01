@@ -100,7 +100,8 @@ export default function FormDaftarPage() {
       router.push(`/daftar/${unit.id}/pembayaran`)
     } catch (err) {
       console.error(err)
-      alert('Terjadi kesalahan. Silakan coba lagi.')
+      const msg = err instanceof Error ? err.message : JSON.stringify(err)
+      alert(`Terjadi kesalahan:\n${msg}`)
     } finally {
       setLoading(false)
     }
