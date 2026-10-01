@@ -89,9 +89,29 @@ export default function FormDaftarPage() {
     setLoading(true)
     try {
       const supabase = createClient()
+
+      // Bersihkan field opsional — kirim null bukan string kosong
+      const payload = {
+        unit_id: unit.id,
+        unit_nama: unit.nama,
+        status: 'pending',
+        nama_anak: form.nama_anak,
+        tanggal_lahir: form.tanggal_lahir,
+        jenis_kelamin: form.jenis_kelamin,
+        asal_sekolah: form.asal_sekolah || null,
+        nama_ayah: form.nama_ayah,
+        pekerjaan_ayah: form.pekerjaan_ayah || null,
+        nama_ibu: form.nama_ibu,
+        pekerjaan_ibu: form.pekerjaan_ibu || null,
+        no_telepon: form.no_telepon,
+        alamat: form.alamat,
+        jenis_pendaftaran: form.jenis_pendaftaran || null,
+        kelas_masuk: form.kelas_masuk || null,
+        program_smp: form.program_smp || null,
+      }
       const { data, error } = await supabase
         .from('pendaftaran')
-        .insert({ unit_id: unit.id, unit_nama: unit.nama, ...form, status: 'pending' })
+        .insert(payload)
         .select()
         .single()
       if (error) throw error
