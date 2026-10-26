@@ -13,7 +13,7 @@ export const UNITS = [
     namaBank: 'Bank Syariah Indonesia (BSI)',
     atasNama: 'Yayasan Al-Iman',
     nomorWA: '6285166458827',
-    biayaPendaftaran: 250000,
+    biayaPendaftaran: 300000,
   },
   {
     id: 'kb-kecil',
@@ -28,7 +28,7 @@ export const UNITS = [
     namaBank: 'Bank Syariah Indonesia (BSI)',
     atasNama: 'Yayasan Al-Iman',
     nomorWA: '6285166458827',
-    biayaPendaftaran: 250000,
+    biayaPendaftaran: 300000,
   },
   {
     id: 'kb-besar',
@@ -58,7 +58,7 @@ export const UNITS = [
     namaBank: 'Bank Syariah Indonesia (BSI)',
     atasNama: 'Yayasan Al-Iman',
     nomorWA: '6285166458827',
-    biayaPendaftaran: 250000,
+    biayaPendaftaran: 300000,
   },
   {
     id: 'tkb',
@@ -73,7 +73,7 @@ export const UNITS = [
     namaBank: 'Bank Syariah Indonesia (BSI)',
     atasNama: 'Yayasan Al-Iman',
     nomorWA: '6285166458827',
-    biayaPendaftaran: 250000,
+    biayaPendaftaran: 300000,
   },
   // ── SD ─────────────────────────────────────────────────────────
   {
